@@ -1,0 +1,26 @@
+<template>
+    <lightning-card>
+        <div>Hello {fname} {lname}!</div>
+
+        <div>
+            <lightning-input 
+                name="firstName"  
+                label="Enter First Name" 
+                class="inputClass">
+            </lightning-input>
+        </div>
+        <div>
+            <lightning-input 
+                name="lastName" 
+                label="Enter Last Name" 
+                class="inputClass">
+            </lightning-input>
+        </div>
+        <div>
+            <lightning-button 
+                label="Click Me" 
+                onclick={handleClick}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

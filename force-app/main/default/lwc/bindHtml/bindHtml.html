@@ -1,0 +1,21 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Data Binding" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <p class="slds-p-horizontal_small">Hello {employee.firstName}</p>
+        <p class="slds-p-horizontal_small">Your full Name: {employee.firstName}, {employee.lastName}. The Age is {employee.age} and you live in {employee.city} </p>
+        <div class="slds-p-horizontal_small">
+            <p>Rank: {getRank}</p>
+        </div>
+        <p class="slds-p-horizontal_small">{myValue}</p>
+        <br><br>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" name="trial" label="Enter some text" value={myValue} onchange={handleChange}></lightning-input>
+        </div>
+        <!--Using getter function-->
+        <div class="slds-p-around_medium lgc-bg">
+            <p class="slds-p-horizontal_small">Uppercase Full Name: {uppercaseName}</p>
+            <lightning-input type="text" name="firstName" label="First Name"  onchange={handleChange}></lightning-input>
+            <lightning-input type="text" name="lastName" label="Last Name"  onchange={handleChange}></lightning-input>
+        </div>
+    </lightning-card>
+</template>

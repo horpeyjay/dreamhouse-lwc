@@ -1,0 +1,14 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Conditional Redenering element" icon-name="standard:account"></lightning-card>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="checkbox" label="Click Me" name="clickMe" onchange={handleChange}></lightning-input>
+        </div>
+
+        <template if:true={showMe}>
+            I'm visible
+        </template>
+        <template if:false={showMe}>
+            I'm not visible
+        </template>
+    </lightning-card>
+</template>
