@@ -4,9 +4,11 @@ public with sharing class IMDBController {
         try {
             Http http = new Http();
             HttpRequest request = new HttpRequest();
-            request.setEndpoint('https://api.collectapi.com/imdb/imdbSearchByName?query='+searchText);
+            //request.setEndpoint('https://api.collectapi.com/imdb/imdbSearchByName?query='+searchText); //remote site setting
+            //FOR NAMED CREDENTIALS
+            request.setEndpoint('callout:IMDB/imdb/imdbSearchByName?query='+searchText);
             request.setMethod('GET');
-            request.setHeader('authorization', 'apikey 7gNSLiJLx0iNUADnsR8CJ0:1NqTCleB01mEAU2Sz7bu1y');
+            //request.setHeader('authorization', 'apikey 7gNSLiJLx0iNUADnsR8CJ0:1NqTCleB01mEAU2Sz7bu1y');
             
             HttpResponse response = http.send(request);
             if (response.getStatusCode() == 200) {
