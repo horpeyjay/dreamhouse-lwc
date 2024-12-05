@@ -1,40 +1,36 @@
-public with sharing class CampApexSolution {
-    /*Do not change the name of the class or the method signature.*/
-    public Integer calculateRecipeSum(List<String> recipeLines) {
-        List<Integer> recipesNumbers = new List<Integer>();
-        if(!recipeLines.isEmpty() || recipeLines.size()> 0){
-            for(String s : recipeLines){
-                String currentWord = s;
-                system.debug(currentWord);
-                String currentNum = '';
-                for(Integer i = 0; i < currentWord.length(); i++){
-                    String currentChar = currentWord.subString(i, i+1);
-                    
-                    if(currentChar.isNumeric()){
-                        currentNum += currentChar;
-                    }
+/*Do not change the name of the class or the method signature.*/
 
-                    if(currentNum.length() >= 2){
-                        currentNum = currentNum.subString(0,1) + currentNum.substring(currentNum.length() - 1, currentNum.length());
-                        system.debug(currentNum);
-                    }
-                }
-
-                recipesNumbers.add(Integer.valueOf(currentNum));
-                system.debug(recipesNumbers);
-
-
+public class CampApexSolution {
+    public Boolean isPalindrome(String input) {
+      Boolean ispali;
+      String reverseString;
+      String cleanString = '';
+      if(input == ''){
+        return true;
+      }
+      try{
+        if(!String.isBlank(input)){
+          String s = input.toLowerCase();
+          for(integer i = 0; i < s.length(); i++){
+            String currentChar = s.subString(i, i + 1);
+            if(currentChar == '.'){
+              cleanString += currentChar;
             }
-        }
-        Integer totalRecipesCount = 0;
-        if(!recipesNumbers.isEmpty()){
-            for(Integer i : recipesNumbers){
-                totalRecipesCount += i;
+            if(currentChar.isAlphanumeric()){
+              cleanString += currentChar;
             }
-            system.debug('total: ' + totalRecipesCount);
+          }
+          reverseString = cleanString.reverse();
+  
+          if(cleanString.equals(reverseString)){
+            ispali = true;
+          }
         }
-
-        return totalRecipesCount;
-        
+      }catch(Exception ex){
+        system.debug('Something went wrong' + ex.getMessage());
+        ispali = false;
+      }
+  
+      return ispali;
     }
-} 
+  }
